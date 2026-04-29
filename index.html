@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="陈以安个人作品集网站，包含个人介绍、经历、技能、作品展示与联系信息。"
+    />
+    <title>陈以安 | 视觉设计师作品集</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <canvas class="scene-bg" id="sceneBg" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="scanline" aria-hidden="true"></div>
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+    <aside class="side-rail" aria-label="页面导航">
+      <a class="rail-brand magnetic" href="#home" aria-label="回到首页">CY</a>
+      <div class="rail-counter">
+        <span id="sectionIndex">01</span>
+        <span>/ 06</span>
+      </div>
+      <nav class="rail-nav" id="railNav"></nav>
+      <div class="rail-socials" id="railSocials"></div>
+    </aside>
+
+    <header class="topbar">
+      <a class="topbar-logo magnetic" href="#home">CHENYIAN</a>
+      <button class="menu-toggle magnetic" id="menuToggle" type="button" aria-expanded="false" aria-controls="topNav">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="topnav" id="topNav"></nav>
+    </header>
+
+    <main>
+      <section class="section hero" id="home" data-section="01">
+        <div class="section-inner hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow" id="heroEyebrow"></p>
+            <h1 id="heroTitle"></h1>
+            <p class="hero-subtitle" id="heroSubtitle"></p>
+            <p class="hero-intro" id="heroIntro"></p>
+            <div class="hero-actions" id="heroActions"></div>
+          </div>
+          <div class="portrait-stage" aria-label="个人肖像">
+            <div class="orbit orbit-one" aria-hidden="true"></div>
+            <div class="orbit orbit-two" aria-hidden="true"></div>
+            <img id="heroPortrait" alt="陈以安肖像" />
+            <div class="portrait-meta">
+              <span id="personRole"></span>
+              <strong id="personLocation"></strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about" id="about" data-section="02">
+        <div class="section-inner split-layout">
+          <div class="section-title">
+            <p class="eyebrow" id="aboutEyebrow"></p>
+            <h2>关于</h2>
+          </div>
+          <div class="about-content">
+            <h3 id="aboutTitle"></h3>
+            <div id="aboutParagraphs"></div>
+            <div class="fact-grid" id="aboutFacts"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section experience" id="experience" data-section="03">
+        <div class="section-inner split-layout">
+          <div class="section-title sticky-title">
+            <p class="eyebrow">03 / EXPERIENCE</p>
+            <h2>经历</h2>
+            <p>我的工作与学习轨迹</p>
+          </div>
+          <div class="timeline-area">
+            <div>
+              <p class="list-label">工作经历 / WORK</p>
+              <div class="timeline" id="experienceList"></div>
+            </div>
+            <div>
+              <p class="list-label">教育经历 / EDUCATION</p>
+              <div class="timeline compact" id="educationList"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section skills" id="skills" data-section="04">
+        <div class="section-inner skills-grid">
+          <div class="section-title">
+            <p class="eyebrow">04 / SKILLS</p>
+            <h2>常用软件工具</h2>
+            <p>从概念、视觉系统到动态原型，建立可落地的设计流程。</p>
+            <div class="tool-cloud" id="toolCloud"></div>
+          </div>
+          <div class="skill-panel">
+            <div class="skill-bars" id="skillBars"></div>
+            <div class="stats-row" id="statsRow"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section works" id="works" data-section="05">
+        <div class="section-inner works-inner">
+          <div class="works-heading">
+            <div>
+              <p class="eyebrow">05 / SELECTED WORKS</p>
+              <h2>作品展示</h2>
+            </div>
+            <p>精选项目在暗场中保持连续节奏，呈现不同阶段的视觉方向与系统表达。</p>
+          </div>
+        </div>
+        <div class="showcase" id="showcase" aria-label="作品展示滑动区域"></div>
+      </section>
+
+      <section class="section contact" id="contact" data-section="06">
+        <div class="section-inner contact-grid">
+          <div class="contact-copy">
+            <p class="eyebrow" id="contactEyebrow"></p>
+            <h2 id="contactTitle"></h2>
+            <p id="contactIntro"></p>
+            <a class="btn primary magnetic" id="contactAction"></a>
+          </div>
+          <div class="contact-panel">
+            <div class="contact-card">
+              <span>Email</span>
+              <a id="contactEmail"></a>
+            </div>
+            <div class="contact-card">
+              <span>Social</span>
+              <div id="contactSocials"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="作品预览" hidden>
+      <button class="lightbox-close magnetic" id="lightboxClose" type="button" aria-label="关闭预览"></button>
+      <button class="lightbox-nav prev magnetic" id="lightboxPrev" type="button" aria-label="上一张">←</button>
+      <figure class="lightbox-frame">
+        <img id="lightboxImage" alt="" />
+        <figcaption>
+          <span id="lightboxCounter"></span>
+          <strong id="lightboxTitle"></strong>
+          <em id="lightboxMeta"></em>
+          <p id="lightboxDescription"></p>
+        </figcaption>
+      </figure>
+      <button class="lightbox-nav next magnetic" id="lightboxNext" type="button" aria-label="下一张">→</button>
+    </div>
+
+    <script src="js/site-data.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
